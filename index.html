@@ -1,9 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=https://discord.gg/SUCfKFAPzv">
+  <meta charset="UTF-8">
+  <title>Join My Discord</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(270deg, #5865F2, #8f5cff, #00c6ff);
+      background-size: 600% 600%;
+      animation: gradientShift 10s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .copy-btn {
+      background: #5865F2;
+      color: white;
+      box-shadow: 0 0 15px rgba(88,101,242,0.6);
+    }
+
+    .copy-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(88,101,242,1);
+    }
+
+    .join-btn {
+      background: white;
+      color: #5865F2;
+      font-weight: bold;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.05);
+      background: #eee;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to Discord...</p>
+
+  <div class="card">
+    <h1>🚀 Join My Discord</h1>
+    <p>Click below to copy or join instantly</p>
+
+    <button class="copy-btn" onclick="copyLink()">📋 Copy Discord Link</button>
+    <button class="join-btn" onclick="joinDiscord()">➡️ Open Discord</button>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const discordLink = "https://discord.gg/SUCfKFAPzv";
+
+    function copyLink() {
+      navigator.clipboard.writeText(discordLink).then(() => {
+        const status = document.getElementById("status");
+        status.innerText = "✅ Link copied to clipboard!";
+      }).catch(() => {
+        document.getElementById("status").innerText = "❌ Failed to copy.";
+      });
+    }
+
+    function joinDiscord() {
+      window.location.href = discordLink;
+    }
+  </script>
+
 </body>
 </html>
